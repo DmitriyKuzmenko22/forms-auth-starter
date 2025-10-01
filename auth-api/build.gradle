@@ -20,6 +20,8 @@ dependencies {
   runtimeOnly 'org.postgresql:postgresql:42.7.3'
 
   implementation 'org.flywaydb:flyway-core'
+  // Flyway 10+ requires database-specific support modules
+  implementation 'org.flywaydb:flyway-database-postgresql:10.10.0'
   implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
 
   testImplementation 'org.springframework.boot:spring-boot-starter-test'

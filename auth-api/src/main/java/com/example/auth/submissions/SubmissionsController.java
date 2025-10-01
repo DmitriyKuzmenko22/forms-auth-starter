@@ -1,5 +1,6 @@
 package com.example.auth.submissions;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.*;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ public class SubmissionsController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('user')")
     public Map<String, Object> create(@AuthenticationPrincipal Jwt jwt, @RequestBody CreateSubmissionDto dto) {
         var s = service.createDraft(jwt.getSubject(), dto.formCode());
         return Map.of("id", s.getId(), "status", s.getStatus(), "formCode", s.getFormCode(), "payload", s.getPayload());

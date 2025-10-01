@@ -1,6 +1,8 @@
 package com.example.auth.submissions;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.*;
 import java.util.*;
@@ -17,6 +19,7 @@ public class FormSubmission {
     private String formCode;
     @Column(nullable = false, length = 16)
     private String status;
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb", nullable = false)
     private String payload;
     @Column(name = "created_at", nullable = false)
