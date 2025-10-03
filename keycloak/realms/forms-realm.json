@@ -1,0 +1,65 @@
+{
+  "realm": "forms-realm",
+  "enabled": true,
+  "verifyEmail": false,
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": true,
+  
+  "roles": {
+    "realm": [
+      { "name": "user" },
+      { "name": "admin" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "forms-spa",
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "http://localhost:5173/*"
+      ],
+      "webOrigins": [
+        "http://localhost:5173"
+      ]
+    },
+    {
+      "clientId": "curl-client",
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "dev-curl-secret-123",
+      "clientAuthenticatorType": "client-secret",
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "redirectUris": [],
+      "webOrigins": []
+    }
+  ],
+  "users": [
+    {
+      "username": "test",
+      "enabled": true,
+      "email": "test@example.com",
+      "emailVerified": true,
+      "requiredActions": [],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "pass1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ]
+    }
+  ]
+}
