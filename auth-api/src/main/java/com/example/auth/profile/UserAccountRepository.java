@@ -6,4 +6,5 @@ import java.util.*;
 
 public interface UserAccountRepository extends JpaRepository<UserAccount, UUID> {
     Optional<UserAccount> findByKeycloakUserId(String keycloakUserId);
+    Optional<UserAccount> findByEmail(String email);
 }

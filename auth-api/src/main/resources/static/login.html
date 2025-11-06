@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<h1>Вход</h1>
+<form id="login-form">
+    <label>Email:<br>
+        <input type="email" name="email" required>
+    </label><br>
+    <label>Пароль:<br>
+        <input type="password" name="password" required>
+    </label><br>
+    <button type="submit">Войти</button>
+</form>
+<p id="message"></p>
+<p>Нет аккаунта? <a href="/register.html">Зарегистрироваться</a></p>
+<script src="/assets/auth.js"></script>
+<script>
+    setupLoginForm('/public/api/login');
+</script>
+</body>
+</html>
